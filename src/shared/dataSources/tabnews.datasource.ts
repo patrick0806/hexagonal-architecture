@@ -23,4 +23,13 @@ export class TabnewsDataSource implements ITabnewsDataSource {
       console.log(error);
     }
   }
+
+  async getPostContent(user: string, slug: string): Promise<any> {
+    try {
+      const res = await this.connection.get(`/contents/${user}/${slug}`);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
